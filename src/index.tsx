@@ -12,7 +12,7 @@ import "./styles/index.css";
 import { Login } from "./sections/LogIn";
 import { Affix, Layout, Spin } from "antd";
 import { Viewer } from "./lib/types";
-import { AppHeader } from "./sections";
+import { AppHeader, User } from "./sections";
 import {
   LogIn as LogInData,
   LogInVariables,
@@ -94,7 +94,11 @@ const App = () => {
             path="/listings/:location?"
             render={() => <div>Listings</div>}
           />
-          <Route exact path="/user/:id" render={() => <div>User</div>} />
+          <Route
+            exact
+            path="/user/:id"
+            render={(props) => <User {...props} viewer={viewer} />}
+          />
           <Route render={() => <div>Not Found</div>} />
         </Switch>
       </Layout>
