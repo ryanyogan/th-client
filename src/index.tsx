@@ -5,8 +5,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./styles/index.css";
 import { Login } from "./sections/LogIn";
-import { Layout } from "antd";
+import { Affix, Layout } from "antd";
 import { Viewer } from "./lib/types";
+import { AppHeader } from "./sections";
 
 const client = new ApolloClient({
   uri: "/api",
@@ -27,6 +28,9 @@ const App = () => {
   return (
     <Router>
       <Layout id="app">
+        <Affix offsetTop={0} className="app__affix-header">
+          <AppHeader viewer={viewer} setViewer={setViewer} />
+        </Affix>
         <Switch>
           <Route exact path="/" render={() => <div>Home</div>} />
           <Route
