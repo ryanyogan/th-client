@@ -19,6 +19,7 @@ import {
 } from "./lib/graphql/mutations/LogIn/__generated__/LogIn";
 import { LOG_IN } from "./lib/graphql/mutations/LogIn";
 import { AppHeaderSkeleton, ErrorBanner } from "./lib/components";
+import { Home } from "./sections/Home";
 
 const client = new ApolloClient({
   uri: "/api",
@@ -81,7 +82,7 @@ const App = () => {
           <AppHeader viewer={viewer} setViewer={setViewer} />
         </Affix>
         <Switch>
-          <Route exact path="/" render={() => <div>Home</div>} />
+          <Route exact path="/" component={Home} />
           <Route
             exact
             path="/login"
