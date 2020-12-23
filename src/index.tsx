@@ -12,7 +12,7 @@ import "./styles/index.css";
 import { Login } from "./sections/LogIn";
 import { Affix, Layout, Spin } from "antd";
 import { Viewer } from "./lib/types";
-import { AppHeader, User } from "./sections";
+import { AppHeader, User, Listing } from "./sections";
 import {
   LogIn as LogInData,
   LogInVariables,
@@ -88,7 +88,7 @@ const App = () => {
             render={(props) => <Login {...props} setViewer={setViewer} />}
           />
           <Route exact path="/host" render={() => <div>Host</div>} />
-          <Route exact path="/listing/:id" render={() => <div>Listing</div>} />
+          <Route exact path="/listing/:id" component={Listing} />
           <Route
             exact
             path="/listings/:location?"
